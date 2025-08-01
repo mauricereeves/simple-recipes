@@ -1,0 +1,177 @@
+import type { Recipe } from '../types/Recipe';
+
+export const recipes: Recipe[] = [
+  {
+    id: 'classic-chocolate-chip-cookies',
+    title: 'Classic Chocolate Chip Cookies',
+    tags: ['dessert', 'cookies', 'quick'],
+    author: 'Sarah Baker',
+    createdDate: '2024-01-15',
+    lastUpdatedDate: '2024-02-10',
+    ingredients: [
+      { name: 'all-purpose flour', amount: 2.25, unit: 'cups' },
+      { name: 'baking soda', amount: 1, unit: 'tsp' },
+      { name: 'salt', amount: 1, unit: 'tsp' },
+      { name: 'butter', amount: 1, unit: 'cup', notes: 'softened' },
+      { name: 'granulated sugar', amount: 0.75, unit: 'cup' },
+      { name: 'brown sugar', amount: 0.75, unit: 'cup', notes: 'packed' },
+      { name: 'eggs', amount: 2, unit: 'whole', notes: 'large' },
+      { name: 'vanilla extract', amount: 2, unit: 'tsp' },
+      { name: 'chocolate chips', amount: 2, unit: 'cups' }
+    ],
+    prepInstructions: [
+      'Preheat oven to 375°F (190°C).',
+      'In a medium bowl, whisk together flour, baking soda, and salt. Set aside.',
+      'In a large bowl, cream together softened butter and both sugars until light and fluffy, about 2-3 minutes.',
+      'Beat in eggs one at a time, then stir in vanilla extract.',
+      'Gradually mix in the flour mixture until just combined.',
+      'Fold in chocolate chips.'
+    ],
+    cookingInstructions: [
+      'Drop rounded tablespoons of dough onto ungreased baking sheets, spacing them about 2 inches apart.',
+      'Bake for 9-11 minutes or until edges are golden brown.',
+      'Cool on baking sheet for 2 minutes before transferring to a wire rack.'
+    ],
+    additionalNotes: 'For chewier cookies, slightly underbake them. For crispier cookies, bake for an additional 1-2 minutes.',
+    prepTimeMinutes: 15,
+    cookTimeMinutes: 11,
+    servings: 48
+  },
+  {
+    id: 'simple-pasta-marinara',
+    title: 'Simple Pasta Marinara',
+    tags: ['dinner', 'pasta', 'vegetarian', 'quick'],
+    author: 'Marco Romano',
+    createdDate: '2024-01-20',
+    ingredients: [
+      { name: 'pasta', amount: 1, unit: 'lb', notes: 'spaghetti or penne' },
+      { name: 'olive oil', amount: 3, unit: 'tbsp' },
+      { name: 'garlic', amount: 4, unit: 'cloves', notes: 'minced' },
+      { name: 'crushed tomatoes', amount: 28, unit: 'oz', notes: 'canned' },
+      { name: 'salt', amount: 1, unit: 'tsp' },
+      { name: 'black pepper', amount: 0.5, unit: 'tsp' },
+      { name: 'dried basil', amount: 1, unit: 'tsp' },
+      { name: 'dried oregano', amount: 1, unit: 'tsp' },
+      { name: 'parmesan cheese', amount: 0.5, unit: 'cup', notes: 'grated, for serving' }
+    ],
+    prepInstructions: [
+      'Bring a large pot of salted water to boil for pasta.',
+      'Mince garlic cloves.',
+      'Grate parmesan cheese if not pre-grated.'
+    ],
+    cookingInstructions: [
+      'Cook pasta according to package directions until al dente. Reserve 1 cup pasta water before draining.',
+      'Meanwhile, heat olive oil in a large skillet over medium heat.',
+      'Add minced garlic and cook for 30 seconds until fragrant.',
+      'Add crushed tomatoes, salt, pepper, basil, and oregano. Simmer for 10-15 minutes.',
+      'Add drained pasta to the sauce and toss to combine.',
+      'Add pasta water a little at a time if needed to achieve desired consistency.',
+      'Serve immediately with grated parmesan cheese.'
+    ],
+    additionalNotes: 'Fresh basil leaves make an excellent garnish. Add them just before serving.',
+    prepTimeMinutes: 10,
+    cookTimeMinutes: 20,
+    servings: 4
+  },
+  {
+    id: 'banana-bread',
+    title: 'Moist Banana Bread',
+    tags: ['breakfast', 'bread', 'baking'],
+    author: 'Emma Kitchen',
+    createdDate: '2024-01-10',
+    ingredients: [
+      { name: 'all-purpose flour', amount: 1.75, unit: 'cups' },
+      { name: 'baking soda', amount: 1, unit: 'tsp' },
+      { name: 'salt', amount: 0.5, unit: 'tsp' },
+      { name: 'butter', amount: 0.5, unit: 'cup', notes: 'melted' },
+      { name: 'brown sugar', amount: 0.75, unit: 'cup', notes: 'packed' },
+      { name: 'egg', amount: 1, unit: 'whole', notes: 'beaten' },
+      { name: 'vanilla extract', amount: 1, unit: 'tsp' },
+      { name: 'ripe bananas', amount: 3, unit: 'whole', notes: 'mashed' }
+    ],
+    prepInstructions: [
+      'Preheat oven to 350°F (175°C).',
+      'Grease a 4x8 inch loaf pan.',
+      'In a large bowl, combine flour, baking soda, and salt.',
+      'Mash bananas in a separate bowl until smooth.'
+    ],
+    cookingInstructions: [
+      'In another bowl, mix melted butter and brown sugar.',
+      'Stir in beaten egg and vanilla extract.',
+      'Add mashed bananas and mix well.',
+      'Pour the wet ingredients into the flour mixture and stir until just combined.',
+      'Pour batter into prepared loaf pan.',
+      'Bake for 60-65 minutes or until a toothpick inserted in center comes out clean.',
+      'Cool in pan for 10 minutes before turning out onto a wire rack.'
+    ],
+    additionalNotes: 'The riper the bananas, the more flavorful your bread will be. Look for bananas with brown spots.',
+    prepTimeMinutes: 15,
+    cookTimeMinutes: 65,
+    servings: 8
+  },
+  {
+    id: 'chicken-stir-fry',
+    title: 'Quick Chicken Stir Fry',
+    tags: ['dinner', 'chicken', 'healthy', 'quick'],
+    author: 'Chef Alex',
+    createdDate: '2024-01-25',
+    lastUpdatedDate: '2024-01-30',
+    ingredients: [
+      { name: 'chicken breast', amount: 1, unit: 'lb', notes: 'cut into strips' },
+      { name: 'vegetable oil', amount: 2, unit: 'tbsp' },
+      { name: 'bell peppers', amount: 2, unit: 'whole', notes: 'sliced' },
+      { name: 'broccoli florets', amount: 2, unit: 'cups' },
+      { name: 'carrots', amount: 2, unit: 'whole', notes: 'sliced thin' },
+      { name: 'garlic', amount: 3, unit: 'cloves', notes: 'minced' },
+      { name: 'ginger', amount: 1, unit: 'tbsp', notes: 'fresh, minced' },
+      { name: 'soy sauce', amount: 3, unit: 'tbsp' },
+      { name: 'oyster sauce', amount: 2, unit: 'tbsp' },
+      { name: 'cornstarch', amount: 1, unit: 'tsp' },
+      { name: 'sesame oil', amount: 1, unit: 'tsp' }
+    ],
+    prepInstructions: [
+      'Cut chicken into thin strips.',
+      'Slice bell peppers and carrots.',
+      'Cut broccoli into bite-sized florets.',
+      'Mince garlic and ginger.',
+      'Mix soy sauce, oyster sauce, cornstarch, and sesame oil in a small bowl.'
+    ],
+    cookingInstructions: [
+      'Heat 1 tablespoon oil in a large wok or skillet over high heat.',
+      'Add chicken and stir-fry for 3-4 minutes until cooked through. Remove and set aside.',
+      'Add remaining oil to the pan.',
+      'Add carrots and broccoli, stir-fry for 2 minutes.',
+      'Add bell peppers, garlic, and ginger. Stir-fry for another 2 minutes.',
+      'Return chicken to the pan.',
+      'Pour sauce over everything and toss to coat.',
+      'Cook for 1-2 minutes until sauce thickens.',
+      'Serve immediately over rice.'
+    ],
+    additionalNotes: 'Serve over steamed rice or noodles. Feel free to substitute vegetables based on what you have available.',
+    prepTimeMinutes: 20,
+    cookTimeMinutes: 10,
+    servings: 4
+  }
+];
+
+export function getRecipeById(id: string): Recipe | undefined {
+  return recipes.find(recipe => recipe.id === id);
+}
+
+export function getRecipesByTag(tag: string): Recipe[] {
+  return recipes.filter(recipe => recipe.tags.includes(tag));
+}
+
+export function getAllTags(): string[] {
+  const allTags = recipes.flatMap(recipe => recipe.tags);
+  return [...new Set(allTags)].sort();
+}
+
+export function getAllAuthors(): string[] {
+  const allAuthors = recipes.map(recipe => recipe.author);
+  return [...new Set(allAuthors)].sort();
+}
+
+export function getRecipesByAuthor(author: string): Recipe[] {
+  return recipes.filter(recipe => recipe.author === author);
+}

@@ -1,0 +1,138 @@
+---
+import type { Recipe } from '../types/Recipe';
+import { formatAmount } from '../utils/measurements';
+
+export interface Props {
+  recipe: Recipe;
+}
+
+const { recipe } = Astro.props;
+
+function formatTime(minutes: number): string {
+  if (minutes < 60) {
+    return `${minutes}m`;
+  }
+  const hours = Math.floor(minutes / 60);
+  const remainingMinutes = minutes % 60;
+  return remainingMinutes > 0 ? `${hours}h ${remainingMinutes}m` : `${hours}h`;
+}
+
+function formatDate(dateString: string): string {
+  const date = new Date(dateString);
+  return date.toLocaleDateString('en-US', { 
+    year: 'numeric', 
+    month: 'short', 
+    day: 'numeric' 
+  });
+}
+---
+
+<article 
+  class="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2"
+  role="article"
+  aria-labelledby={`recipe-title-${recipe.id}`}
+>
+  <header class="mb-4">
+    <h2 id={`recipe-title-${recipe.id}`} class="text-xl font-semibold text-gray-900 mb-2">
+      <a 
+        href={`/recipe/${recipe.id}`} 
+        class="hover:text-blue-600 focus:text-blue-600 focus:outline-none focus:underline"
+        aria-describedby={`recipe-meta-${recipe.id}`}
+      >
+        {recipe.title}
+      </a>
+    </h2>
+    
+    <div id={`recipe-meta-${recipe.id}`} class="flex flex-wrap gap-4 text-sm text-gray-600">
+      <div class="flex items-center gap-1" aria-label="Preparation time">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-hidden="true">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12,6 12,12 16,14"></polyline>
+        </svg>
+        <span>Prep: {formatTime(recipe.prepTimeMinutes)}</span>
+      </div>
+      
+      <div class="flex items-center gap-1" aria-label="Cooking time">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-hidden="true">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14,2 14,8 20,8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10,9 9,9 8,9"></polyline>
+        </svg>
+        <span>Cook: {formatTime(recipe.cookTimeMinutes)}</span>
+      </div>
+      
+      <div class="flex items-center gap-1" aria-label="Number of servings">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-hidden="true">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+          <circle cx="9" cy="7" r="4"></circle>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+        </svg>
+        <span>Serves: {recipe.servings}</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="mb-4">
+    <div class="text-sm text-gray-600 mb-2">
+      <span class="font-medium">By {recipe.author}</span>
+      <span class="mx-2">•</span>
+      <span>Created {formatDate(recipe.createdDate)}</span>
+      {recipe.lastUpdatedDate && (
+        <>
+          <span class="mx-2">•</span>
+          <span>Updated {formatDate(recipe.lastUpdatedDate)}</span>
+        </>
+      )}
+    </div>
+    
+    {recipe.tags.length > 0 && (
+      <div role="group" aria-label="Recipe tags">
+        <div class="flex flex-wrap gap-2">
+          {recipe.tags.map((tag) => (
+            <span 
+              class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800"
+              role="text"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+    )}
+  </div>
+
+  <div class="text-sm text-gray-600">
+    <p class="mb-2">
+      <strong>Ingredients:</strong> {recipe.ingredients.length} items
+    </p>
+    
+    <div class="flex flex-wrap gap-1">
+      {recipe.ingredients.slice(0, 3).map((ingredient, index) => (
+        <span>
+          {ingredient.name}{index < Math.min(2, recipe.ingredients.length - 1) ? ',' : ''}
+        </span>
+      ))}
+      {recipe.ingredients.length > 3 && (
+        <span class="text-gray-500">
+          and {recipe.ingredients.length - 3} more
+        </span>
+      )}
+    </div>
+  </div>
+
+  <div class="mt-4 pt-4 border-t border-gray-100">
+    <a 
+      href={`/recipe/${recipe.id}`}
+      class="inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-500 focus:outline-none focus:underline"
+      aria-label={`View full recipe for ${recipe.title}`}
+    >
+      View Recipe
+      <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+      </svg>
+    </a>
+  </div>
+</article>

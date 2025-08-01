@@ -1,0 +1,211 @@
+---
+import type { Recipe } from '../types/Recipe';
+import { formatAmount } from '../utils/measurements';
+import UnitToggle from './UnitToggle.astro';
+
+export interface Props {
+  recipe: Recipe;
+}
+
+const { recipe } = Astro.props;
+
+function formatTime(minutes: number): string {
+  if (minutes < 60) {
+    return `${minutes} minutes`;
+  }
+  const hours = Math.floor(minutes / 60);
+  const remainingMinutes = minutes % 60;
+  return remainingMinutes > 0 ? `${hours} hour${hours > 1 ? 's' : ''} ${remainingMinutes} minutes` : `${hours} hour${hours > 1 ? 's' : ''}`;
+}
+
+function formatDate(dateString: string): string {
+  const date = new Date(dateString);
+  return date.toLocaleDateString('en-US', { 
+    year: 'numeric', 
+    month: 'long', 
+    day: 'numeric' 
+  });
+}
+---
+
+<article class="max-w-3xl mx-auto" role="main" aria-labelledby="recipe-title">
+  <header class="mb-8">
+    <h1 id="recipe-title" class="text-3xl font-bold text-gray-900 mb-2">
+      {recipe.title}
+    </h1>
+    
+    <div class="text-gray-600 mb-4">
+      <span class="font-medium">By {recipe.author}</span>
+      <span class="mx-2">•</span>
+      <span>Created {formatDate(recipe.createdDate)}</span>
+      {recipe.lastUpdatedDate && (
+        <>
+          <span class="mx-2">•</span>
+          <span>Updated {formatDate(recipe.lastUpdatedDate)}</span>
+        </>
+      )}
+    </div>
+    
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6 text-sm">
+      <div class="bg-gray-50 rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-1">
+          <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12,6 12,12 16,14"></polyline>
+          </svg>
+          <span class="font-medium text-gray-900">Prep Time</span>
+        </div>
+        <p class="text-gray-600">{formatTime(recipe.prepTimeMinutes)}</p>
+      </div>
+      
+      <div class="bg-gray-50 rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-1">
+          <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-hidden="true">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14,2 14,8 20,8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+          </svg>
+          <span class="font-medium text-gray-900">Cook Time</span>
+        </div>
+        <p class="text-gray-600">{formatTime(recipe.cookTimeMinutes)}</p>
+      </div>
+      
+      <div class="bg-gray-50 rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-1">
+          <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-hidden="true">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+          </svg>
+          <span class="font-medium text-gray-900">Servings</span>
+        </div>
+        <p class="text-gray-600">{recipe.servings}</p>
+      </div>
+    </div>
+
+    {recipe.tags.length > 0 && (
+      <div class="mb-6" role="group" aria-label="Recipe categories">
+        <h2 class="sr-only">Categories</h2>
+        <div class="flex flex-wrap gap-2">
+          {recipe.tags.map((tag) => (
+            <span 
+              class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800"
+              role="text"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+    )}
+  </header>
+
+  <UnitToggle />
+
+  <section class="mb-8" aria-labelledby="ingredients-heading">
+    <h2 id="ingredients-heading" class="text-2xl font-semibold text-gray-900 mb-4">
+      Ingredients
+    </h2>
+    
+    <ul class="space-y-3" role="list">
+      {recipe.ingredients.map((ingredient, index) => (
+        <li 
+          class="flex items-start gap-3 p-3 bg-gray-50 rounded-lg"
+          data-ingredient={JSON.stringify({ amount: ingredient.amount, unit: ingredient.unit })}
+          data-original={JSON.stringify({ amount: ingredient.amount, unit: ingredient.unit })}
+        >
+          <div class="flex-shrink-0 w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center text-xs font-medium text-blue-800 mt-0.5">
+            {index + 1}
+          </div>
+          <div class="flex-1">
+            <span class="font-medium">
+              <span data-amount>{formatAmount(ingredient.amount)}</span>
+              <span data-unit class="ml-1">{ingredient.unit}</span>
+              <span class="ml-2">{ingredient.name}</span>
+            </span>
+            {ingredient.notes && (
+              <div class="text-sm text-gray-600 mt-1">
+                {ingredient.notes}
+              </div>
+            )}
+          </div>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  {recipe.prepInstructions.length > 0 && (
+    <section class="mb-8" aria-labelledby="prep-heading">
+      <h2 id="prep-heading" class="text-2xl font-semibold text-gray-900 mb-4">
+        Preparation
+      </h2>
+      
+      <ol class="space-y-4" role="list">
+        {recipe.prepInstructions.map((instruction, index) => (
+          <li class="flex gap-4">
+            <div class="flex-shrink-0 w-8 h-8 bg-green-100 rounded-full flex items-center justify-center text-sm font-semibold text-green-800">
+              {index + 1}
+            </div>
+            <div class="flex-1 pt-1">
+              <p class="text-gray-900 leading-relaxed">{instruction}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </section>
+  )}
+
+  <section class="mb-8" aria-labelledby="cooking-heading">
+    <h2 id="cooking-heading" class="text-2xl font-semibold text-gray-900 mb-4">
+      Cooking Instructions
+    </h2>
+    
+    <ol class="space-y-4" role="list">
+      {recipe.cookingInstructions.map((instruction, index) => (
+        <li class="flex gap-4">
+          <div class="flex-shrink-0 w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center text-sm font-semibold text-orange-800">
+            {index + 1}
+          </div>
+          <div class="flex-1 pt-1">
+            <p class="text-gray-900 leading-relaxed">{instruction}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  {recipe.additionalNotes && (
+    <section class="mb-8" aria-labelledby="notes-heading">
+      <h2 id="notes-heading" class="text-2xl font-semibold text-gray-900 mb-4">
+        Additional Notes
+      </h2>
+      
+      <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+        <div class="flex">
+          <div class="flex-shrink-0">
+            <svg class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor" role="img" aria-hidden="true">
+              <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          <div class="ml-3">
+            <p class="text-sm text-yellow-700">{recipe.additionalNotes}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <nav aria-label="Recipe navigation" class="border-t border-gray-200 pt-6">
+    <a 
+      href="/"
+      class="inline-flex items-center text-sm font-medium text-gray-600 hover:text-gray-900 focus:outline-none focus:underline"
+    >
+      <svg class="mr-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+      </svg>
+      Back to all recipes
+    </a>
+  </nav>
+</article>

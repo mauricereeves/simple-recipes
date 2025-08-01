@@ -1,0 +1,25 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import RecipeDetail from '../../components/RecipeDetail.astro';
+import { getRecipeById, recipes } from '../../data/recipes';
+
+export async function getStaticPaths() {
+  return recipes.map((recipe) => ({
+    params: { id: recipe.id },
+  }));
+}
+
+const { id } = Astro.params;
+const recipe = getRecipeById(id as string);
+
+if (!recipe) {
+  throw new Error(`Recipe with id "${id}" not found`);
+}
+---
+
+<Layout 
+  title={recipe.title + ' - Simple Recipes'} 
+  description={`${recipe.title} recipe with ${recipe.ingredients.length} ingredients. Prep time: ${recipe.prepTimeMinutes}m, Cook time: ${recipe.cookTimeMinutes}m`}
+>
+  <RecipeDetail recipe={recipe} />
+</Layout>
