@@ -54,7 +54,11 @@ export function convertMeasurement(
   return { amount, unit };
 }
 
-export function formatAmount(amount: number): string {
+export function formatAmount(amount: number | undefined): string {
+  if (!amount) {
+    return '';
+  }
+  
   if (amount === Math.floor(amount)) {
     return amount.toString();
   }
@@ -67,7 +71,7 @@ export function formatAmount(amount: number): string {
   if (Math.abs(remainder - 0.33) < 0.01) return `${Math.floor(amount)} 1/3`;
   if (Math.abs(remainder - 0.67) < 0.01) return `${Math.floor(amount)} 2/3`;
   
-  return amount.toFixed(2).replace(/\.?0+$/, '');
+  return amount?.toFixed(2)?.replace(/\.?0+$/, '') ?? amount?.toString() ?? '';
 }
 
 export function celsiusToFahrenheit(celsius: number): number {

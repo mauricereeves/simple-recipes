@@ -151,6 +151,50 @@ export const recipes: Recipe[] = [
     prepTimeMinutes: 20,
     cookTimeMinutes: 10,
     servings: 4
+  },
+  {
+    id: 'classic-mac-and-cheese',
+    title: 'Classic Mac and Cheese',
+    tags: ['classic', 'pasta', 'cheese', 'hearty'],
+    author: 'Mo',
+    createdDate: '2025-08-02',
+    ingredients: [
+      { name: 'elbow macaroni or cavatappi', amount: 1, unit:'lb' },
+      { name: 'butter', amount: 6, unit:'tbsp', notes: 'salted or unsalted, either is fine' },
+      { name: 'all-purpose flour', amount: 0.5, unit:'cup' },
+      { name: 'whole milk', amount: 3, unit:'cup', notes: 'room temperature' },
+      { name: 'heavy cream', amount: 1, unit:'cup' },
+      { name: 'sharp cheddar cheese', amount: 12, unit:'oz', notes: 'shredded' },
+      { name: 'gruyere or swiss cheese', amount: 8, unit:'oz', notes: 'shredded' },
+      { name: 'cream cheese', amount: 4, unit:'oz', notes: 'softened' },
+      { name: 'Dijon mustard', amount: 2, unit:'tsp'},
+      { name: 'garlic powder', amount: 1, unit:'tsp'},
+      { name: 'smoked paprika', amount: 1, unit:'tsp'},
+      { name: 'salt and white pepper', notes: 'to taste'},
+      { name: 'panko breadcrumbs', amount: 1, unit:'cup', notes: 'optional topping'},
+      { name: 'melted butter', amount: 2, unit:'tbsp', notes: 'in addition to butter above, mixed with the panko for topping'}
+    ],
+    prepInstructions: [
+      'Preheat oven to 375°F (190°C).',
+      'If not already shredded, shred the cheddar and gruyere cheeses',
+      'Set out milk and cream to get to room temp',
+      '[Optional] - In a pan melt the butter and fold in the bread crumbs. Season with salt and pepper to taste'
+    ],
+    cookingInstructions: [
+      'Cook the pasta to just shy of al dente. It will will finish in the oven. Drain and set aside',
+      'Make a roux with butter and flou, cooking until 2-3 minutes until just lightly gold in color. Stir constantly.',
+      'Gradually whisk in milk and cream and cook until thickened',
+      'Off the heat, stir in the cream cheese, and mustard, and added shredded cheeses',
+      'Season the cheese sauce with the garlic powder, paprika, salt, and pepper. Add other seasonings you like. A pinch of chipotle or cayenne is nice.',
+      'Mix the cheese sauce and pasta together until well mixed and place in a baking dish',
+      'If using the bread crumbs, top with the buttered breadcrumbs',
+      'Bake for 25-30 minutes until the top is golden brown.',
+      'Pull out of the oven and let it sit for 5 minutes before serving.'
+    ],
+    additionalNotes: 'Depending on your oven, it may only need 25 minutes. Check then. The amount of cheese should be viewed as the minimum. Add more if you want. Cook with your heart.',
+    cookTimeMinutes: 30,
+    prepTimeMinutes: 20,
+    servings:4
   }
 ];
 

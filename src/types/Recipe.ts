@@ -16,8 +16,8 @@ export interface Recipe {
 
 export interface Ingredient {
   name: string;
-  amount: number;
-  unit: MeasurementUnit;
+  amount?: number;
+  unit?: MeasurementUnit;
   notes?: string;
 }
 
