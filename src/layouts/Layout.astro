@@ -36,7 +36,7 @@ const { title, description = "Simple, clean recipes without the cruft" } =
       <a href="#main-content">Skip to main content</a>
     </div>
 
-    <header role="banner" class="bg-white border-b border-gray-200">
+    <header role="banner" class="bg-white border-b border-gray-200 print:hidden">
       <div class="max-w-4xl mx-auto px-4 py-6">
         <nav
           role="navigation"
@@ -63,13 +63,13 @@ const { title, description = "Simple, clean recipes without the cruft" } =
       </div>
     </header>
 
-    <main id="main-content" role="main" class="max-w-4xl mx-auto px-4 py-8">
+    <main id="main-content" role="main" class="max-w-4xl mx-auto px-4 py-8 print:px-0 print:py-0 print:max-w-none">
       <slot />
     </main>
 
     <footer
       role="contentinfo"
-      class="bg-gray-50 border-t border-gray-200 mt-16"
+      class="bg-gray-50 border-t border-gray-200 mt-16 print:hidden"
     >
       <div class="max-w-4xl mx-auto px-4 py-8">
         <p class="text-sm text-gray-600 text-center">
@@ -112,5 +112,126 @@ const { title, description = "Simple, clean recipes without the cruft" } =
     overflow: visible;
     clip: auto;
     white-space: normal;
+  }
+
+  /* Print Styles */
+  @media print {
+    * {
+      -webkit-print-color-adjust: exact !important;
+      color-adjust: exact !important;
+    }
+    
+    body {
+      font-size: 12pt;
+      line-height: 1.4;
+      color: #000;
+      background: white;
+    }
+    
+    /* Hide skip link in print */
+    #skip-link {
+      display: none !important;
+    }
+    
+    /* Ensure good page breaks */
+    h1, h2, h3 {
+      page-break-after: avoid;
+      page-break-inside: avoid;
+    }
+    
+    ul, ol {
+      page-break-inside: avoid;
+    }
+    
+    li {
+      page-break-inside: avoid;
+      margin-bottom: 2pt;
+    }
+    
+    /* Recipe-specific print styles */
+    .recipe-title {
+      font-size: 24pt;
+      font-weight: bold;
+      margin-bottom: 12pt;
+    }
+    
+    .recipe-meta {
+      font-size: 10pt;
+      margin-bottom: 16pt;
+      color: #666;
+    }
+    
+    .recipe-section h2 {
+      font-size: 16pt;
+      font-weight: 600;
+      margin-top: 20pt;
+      margin-bottom: 8pt;
+      border-bottom: 1pt solid #ccc;
+      padding-bottom: 4pt;
+    }
+    
+    .ingredients-list li {
+      margin-bottom: 4pt;
+      padding: 2pt 0;
+    }
+    
+    .instructions-list li {
+      margin-bottom: 8pt;
+      padding: 4pt 0;
+    }
+    
+    /* Remove background colors and shadows for print */
+    .bg-gray-50,
+    .bg-blue-100,
+    .bg-green-100,
+    .bg-orange-100,
+    .bg-yellow-50 {
+      background: white !important;
+      border: 1pt solid #ccc !important;
+    }
+    
+    /* Simplify borders and spacing */
+    .border-l-4 {
+      border-left: 2pt solid #ccc !important;
+    }
+    
+    /* Ensure sufficient contrast */
+    .text-gray-600,
+    .text-gray-700 {
+      color: #333 !important;
+    }
+    
+    .text-blue-800,
+    .text-green-800,
+    .text-orange-800 {
+      color: #000 !important;
+    }
+    
+    /* Remove rounded corners */
+    .rounded-lg,
+    .rounded-full {
+      border-radius: 0 !important;
+    }
+    
+    /* Simplify spacing for print */
+    .gap-6 {
+      gap: 8pt !important;
+    }
+    
+    .mb-8 {
+      margin-bottom: 16pt !important;
+    }
+    
+    .mb-4 {
+      margin-bottom: 8pt !important;
+    }
+    
+    .p-4 {
+      padding: 8pt !important;
+    }
+    
+    .p-3 {
+      padding: 6pt !important;
+    }
   }
 </style>

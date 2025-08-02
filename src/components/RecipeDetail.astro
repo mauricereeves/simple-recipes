@@ -30,11 +30,11 @@ function formatDate(dateString: string): string {
 
 <article class="max-w-3xl mx-auto" role="main" aria-labelledby="recipe-title">
   <header class="mb-8">
-    <h1 id="recipe-title" class="text-3xl font-bold text-gray-900 mb-2">
+    <h1 id="recipe-title" class="recipe-title text-3xl font-bold text-gray-900 mb-2">
       {recipe.title}
     </h1>
     
-    <div class="text-gray-600 mb-4">
+    <div class="recipe-meta text-gray-600 mb-4">
       <span class="font-medium">By {recipe.author}</span>
       <span class="mx-2">•</span>
       <span>Created {formatDate(recipe.createdDate)}</span>
@@ -102,14 +102,16 @@ function formatDate(dateString: string): string {
     )}
   </header>
 
-  <UnitToggle />
+  <div class="unit-toggle-wrapper print:hidden">
+    <UnitToggle />
+  </div>
 
-  <section class="mb-8" aria-labelledby="ingredients-heading">
+  <section class="recipe-section mb-8" aria-labelledby="ingredients-heading">
     <h2 id="ingredients-heading" class="text-2xl font-semibold text-gray-900 mb-4">
       Ingredients
     </h2>
     
-    <ul class="space-y-3" role="list">
+    <ul class="ingredients-list space-y-3" role="list">
       {recipe.ingredients.map((ingredient, index) => (
         <li 
           class="flex items-start gap-3 p-3 bg-gray-50 rounded-lg"
@@ -137,12 +139,12 @@ function formatDate(dateString: string): string {
   </section>
 
   {recipe.prepInstructions.length > 0 && (
-    <section class="mb-8" aria-labelledby="prep-heading">
+    <section class="recipe-section mb-8" aria-labelledby="prep-heading">
       <h2 id="prep-heading" class="text-2xl font-semibold text-gray-900 mb-4">
         Preparation
       </h2>
       
-      <ol class="space-y-4" role="list">
+      <ol class="instructions-list space-y-4" role="list">
         {recipe.prepInstructions.map((instruction, index) => (
           <li class="flex gap-4">
             <div class="flex-shrink-0 w-8 h-8 bg-green-100 rounded-full flex items-center justify-center text-sm font-semibold text-green-800">
@@ -157,12 +159,12 @@ function formatDate(dateString: string): string {
     </section>
   )}
 
-  <section class="mb-8" aria-labelledby="cooking-heading">
+  <section class="recipe-section mb-8" aria-labelledby="cooking-heading">
     <h2 id="cooking-heading" class="text-2xl font-semibold text-gray-900 mb-4">
       Cooking Instructions
     </h2>
     
-    <ol class="space-y-4" role="list">
+    <ol class="instructions-list space-y-4" role="list">
       {recipe.cookingInstructions.map((instruction, index) => (
         <li class="flex gap-4">
           <div class="flex-shrink-0 w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center text-sm font-semibold text-orange-800">
@@ -197,7 +199,7 @@ function formatDate(dateString: string): string {
     </section>
   )}
 
-  <nav aria-label="Recipe navigation" class="border-t border-gray-200 pt-6">
+  <nav aria-label="Recipe navigation" class="border-t border-gray-200 pt-6 print:hidden">
     <a 
       href="/"
       class="inline-flex items-center text-sm font-medium text-gray-600 hover:text-gray-900 focus:outline-none focus:underline"
