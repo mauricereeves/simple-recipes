@@ -1,0 +1,51 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getTagsWithCounts } from '../data/recipes';
+
+const tagsWithCounts = getTagsWithCounts();
+---
+
+<Layout title="All Recipe Tags - Simple Recipes" description="Browse all recipe categories and tags on Simple Recipes">
+  <header class="mb-8">
+    <h1 class="text-3xl font-bold text-gray-900 mb-4">All Recipe Tags</h1>
+    <p class="text-lg text-gray-600">
+      Browse recipes by category. Each tag shows the number of available recipes.
+    </p>
+  </header>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    {tagsWithCounts.map(({ tag, count }) => (
+      <a
+        href={`/tag/${tag}`}
+        class="group block p-4 bg-white border border-gray-200 rounded-lg hover:border-blue-300 hover:shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+      >
+        <div class="flex items-center justify-between">
+          <h2 class="text-lg font-medium text-gray-900 group-hover:text-blue-600 transition-colors">
+            {tag.charAt(0).toUpperCase() + tag.slice(1)}
+          </h2>
+          <span class="inline-flex items-center px-2.5 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-700 group-hover:bg-blue-100 group-hover:text-blue-800">
+            {count} recipe{count !== 1 ? 's' : ''}
+          </span>
+        </div>
+        <div class="mt-2 flex items-center text-sm text-gray-500 group-hover:text-blue-500">
+          <span>View all {tag} recipes</span>
+          <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </div>
+      </a>
+    ))}
+  </div>
+
+  <nav aria-label="Tags page navigation" class="mt-12 pt-8 border-t border-gray-200">
+    <a 
+      href="/"
+      class="inline-flex items-center text-sm font-medium text-gray-600 hover:text-gray-900 focus:outline-none focus:underline"
+    >
+      <svg class="mr-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+      </svg>
+      Back to all recipes
+    </a>
+  </nav>
+</Layout>

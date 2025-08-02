@@ -219,3 +219,23 @@ export function getAllAuthors(): string[] {
 export function getRecipesByAuthor(author: string): Recipe[] {
   return recipes.filter(recipe => recipe.author === author);
 }
+
+export function getTagsWithCounts(): Array<{ tag: string; count: number }> {
+  const tagCounts: Record<string, number> = {};
+  
+  recipes.forEach(recipe => {
+    recipe.tags.forEach(tag => {
+      tagCounts[tag] = (tagCounts[tag] || 0) + 1;
+    });
+  });
+  
+  return Object.entries(tagCounts)
+    .map(([tag, count]) => ({ tag, count }))
+    .sort((a, b) => b.count - a.count);
+}
+
+export function getTopTags(limit: number = 8): string[] {
+  return getTagsWithCounts()
+    .slice(0, limit)
+    .map(item => item.tag);
+}
