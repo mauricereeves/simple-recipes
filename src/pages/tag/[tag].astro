@@ -1,0 +1,98 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import RecipeCard from '../../components/RecipeCard.astro';
+import { getAllTags, getRecipesByTag } from '../../data/recipes';
+
+export async function getStaticPaths() {
+  const allTags = getAllTags();
+  
+  return allTags.map((tag) => ({
+    params: { tag },
+  }));
+}
+
+const { tag } = Astro.params;
+const recipes = getRecipesByTag(tag as string);
+const tagDisplayName = tag?.charAt(0).toUpperCase() + tag?.slice(1);
+
+if (!tag || recipes.length === 0) {
+  return Astro.redirect('/tags');
+}
+---
+
+<Layout 
+  title={`${tagDisplayName} Recipes - Simple Recipes`} 
+  description={`Browse all ${tagDisplayName.toLowerCase()} recipes on Simple Recipes. ${recipes.length} recipe${recipes.length !== 1 ? 's' : ''} available.`}
+>
+  <header class="mb-8">
+    <nav class="text-sm text-gray-600 mb-4" aria-label="Breadcrumb">
+      <ol class="flex items-center space-x-2">
+        <li>
+          <a href="/" class="hover:text-gray-900 focus:outline-none focus:underline">
+            Home
+          </a>
+        </li>
+        <li>
+          <svg class="w-3 h-3 text-gray-400" fill="currentColor" viewBox="0 0 20 20" role="img" aria-hidden="true">
+            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+          </svg>
+        </li>
+        <li>
+          <a href="/tags" class="hover:text-gray-900 focus:outline-none focus:underline">
+            Tags
+          </a>
+        </li>
+        <li>
+          <svg class="w-3 h-3 text-gray-400" fill="currentColor" viewBox="0 0 20 20" role="img" aria-hidden="true">
+            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+          </svg>
+        </li>
+        <li class="text-gray-900 font-medium" aria-current="page">
+          {tagDisplayName}
+        </li>
+      </ol>
+    </nav>
+
+    <h1 class="text-3xl font-bold text-gray-900 mb-2">
+      {tagDisplayName} Recipes
+    </h1>
+    <p class="text-lg text-gray-600">
+      {recipes.length} recipe{recipes.length !== 1 ? 's' : ''} found
+    </p>
+  </header>
+
+  <section 
+    class="recipe-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+    role="region" 
+    aria-labelledby="recipes-heading"
+  >
+    <h2 id="recipes-heading" class="sr-only">{tagDisplayName} Recipe List</h2>
+    {recipes.map((recipe) => (
+      <RecipeCard recipe={recipe} />
+    ))}
+  </section>
+
+  <nav aria-label="Tag page navigation" class="mt-12 pt-8 border-t border-gray-200 flex flex-col sm:flex-row gap-4 justify-between">
+    <a 
+      href="/tags"
+      class="inline-flex items-center text-sm font-medium text-gray-600 hover:text-gray-900 focus:outline-none focus:underline"
+    >
+      <svg class="mr-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+      </svg>
+      Browse all tags
+    </a>
+    
+    <a 
+      href="/"
+      class="inline-flex items-center text-sm font-medium text-gray-600 hover:text-gray-900 focus:outline-none focus:underline"
+    >
+      <svg class="mr-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"></path>
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5v4"></path>
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 5v4"></path>
+      </svg>
+      All recipes
+    </a>
+  </nav>
+</Layout>
