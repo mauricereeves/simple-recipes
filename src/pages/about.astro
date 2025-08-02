@@ -1,11 +1,16 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="About - Simple Recipes" description="Learn about Simple Recipes - a clean, accessible recipe site with no frills, just fills!">
+<Layout
+  title="About - Simple Recipes"
+  description="Learn about Simple Recipes - a clean, accessible recipe site with no frills, just fills!"
+>
   <article class="max-w-3xl mx-auto prose prose-gray">
     <header class="mb-8">
-      <h1 class="text-3xl font-bold text-gray-900 mb-4">About Simple Recipes</h1>
+      <h1 class="text-3xl font-bold text-gray-900 mb-4">
+        About Simple Recipes
+      </h1>
       <p class="text-xl text-gray-600 leading-relaxed">
         No frills, just <em>fills</em>! 🥄
       </p>
@@ -13,12 +18,24 @@ import Layout from '../layouts/Layout.astro';
 
     <section class="space-y-6 text-gray-700 leading-relaxed">
       <div>
-        <h2 class="text-2xl font-semibold text-gray-900 mb-3">Our Philosophy</h2>
+        <h2 class="text-2xl font-semibold text-gray-900 mb-3">
+          Our Philosophy
+        </h2>
         <p>
-          We believe cooking should be simple, accessible, and focused on what really matters: great food. 
-          That's why Simple Recipes exists without the endless blog posts, life stories, or pop-up ads 
-          that plague modern recipe sites.
+          We believe cooking should be simple, accessible, and focused on what
+          really matters: great food. That's why Simple Recipes exists without
+          the endless blog posts, life stories, or pop-up ads that plague modern
+          recipe sites.
         </p>
+        <p>
+          This is not a business or a money-making venture. This is a labor of
+          love and an attempt to push back against the enshittification of the
+          internet. More and more, the the internet is being choked out by ads,
+          video ads, pop-ups, pop-overs, and interactivity that crashes the
+          website. You just want to look up a recipe but can't even find the
+          list of ingredients.
+        </p>
+        <p>Enough is enough.</p>
       </div>
 
       <div>
@@ -27,54 +44,102 @@ import Layout from '../layouts/Layout.astro';
           <li>Clean, easy-to-read recipes with clear instructions</li>
           <li>Ingredient lists that get straight to the point</li>
           <li>Metric and imperial measurement conversion</li>
-          <li>Accessible design that works for everyone, including screen readers</li>
+          <li>
+            Accessible design that works for everyone, including screen readers
+          </li>
           <li>Fast loading pages with no unnecessary bloat</li>
           <li>Mobile-friendly design for cooking on any device</li>
         </ul>
       </div>
 
       <div>
-        <h2 class="text-2xl font-semibold text-gray-900 mb-3">What We Don't Do</h2>
+        <h2 class="text-2xl font-semibold text-gray-900 mb-3">
+          What We Don't Do
+        </h2>
         <ul class="space-y-2 list-disc list-inside">
           <li>Force you to read about our grandmother's secret ingredient</li>
-          <li>Hide the recipe behind ads and lengthy stories</li>
+          <li>Hide the recipe or ingredients behind ads and lengthy stories</li>
           <li>Require you to sign up for newsletters</li>
           <li>Track you across the web</li>
           <li>Compromise on accessibility for flashy design</li>
+          <li>
+            Try to load 147 AI generated pictures that aren't even really
+            relevant to the recipe
+          </li>
         </ul>
       </div>
 
       <div>
-        <h2 class="text-2xl font-semibold text-gray-900 mb-3">Accessibility First</h2>
+        <h2 class="text-2xl font-semibold text-gray-900 mb-3">
+          Accessibility First
+        </h2>
         <p>
-          Every recipe on Simple Recipes is designed to be accessible to everyone. We use semantic HTML, 
-          proper ARIA labels, and ensure full keyboard navigation support. Our color choices meet WCAG 
-          accessibility guidelines, and we test with screen readers to ensure a great experience for 
-          visually impaired users.
+          Every recipe on Simple Recipes is designed to be accessible to
+          everyone. We use semantic HTML, proper ARIA labels, and ensure full
+          keyboard navigation support. Our color choices meet WCAG accessibility
+          guidelines, and we test with screen readers to ensure a great
+          experience for visually impaired users.
         </p>
       </div>
 
       <div>
-        <h2 class="text-2xl font-semibold text-gray-900 mb-3">The Simple Promise</h2>
+        <h2 class="text-2xl font-semibold text-gray-900 mb-3">The Tech</h2>
         <p>
-          When you visit Simple Recipes, you get exactly what you came for: reliable, tested recipes 
-          with clear instructions. No pop-ups, no life stories, no hunting for the actual recipe. 
-          Just simple, delicious food that you can make at home.
+          We've built this site using <a
+            href="https://astro.build/"
+            target="_blank">Astro.js</a
+          >, a fast, modern, and extensible framework for building websites.
+          We've also used <a href="https://tailwindcss.com/" target="_blank"
+            >Tailwind CSS</a
+          > for styling, and <a href="https://vite.dev/" target="_blank">Vite</a
+          > for building and bundling. Astro.js is a static site generator that allows
+          us to build fast, performant websites with ease meaning there's less JavaScript
+          and less load and less bloat. It also means the site is more accessible
+          and more secure.
+        </p>
+        <p>
+          Interactivity is cool, but not if it takes down your computer loading
+          a website while you're looking for a recipe for mac and cheese. So we
+          don't have any of that crap here.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-2xl font-semibold text-gray-900 mb-3">
+          The Simple Promise
+        </h2>
+        <p>
+          When you visit Simple Recipes, you get exactly what you came for:
+          reliable, tested recipes with clear instructions. No pop-ups, no life
+          stories, no hunting for the actual recipe. Just simple, delicious food
+          that you can make at home.
         </p>
         <p class="mt-4 font-medium text-gray-900">
-          Because sometimes, the best ingredient is simplicity itself.
+          Because sometimes, you just want the recipe and to get the hell out.
+          We get you.
         </p>
       </div>
     </section>
 
     <footer class="mt-12 pt-8 border-t border-gray-200">
       <nav aria-label="About page navigation">
-        <a 
+        <a
           href="/"
           class="inline-flex items-center text-sm font-medium text-gray-600 hover:text-gray-900 focus:outline-none focus:underline"
         >
-          <svg class="mr-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+          <svg
+            class="mr-2 w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            role="img"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 19l-7-7 7-7"></path>
           </svg>
           Back to recipes
         </a>
