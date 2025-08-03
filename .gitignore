@@ -69,3 +69,8 @@ jspm_packages/
 
 # Yarn Integrity file
 .yarn-integrity
+
+# Cypress generated files
+cypress/videos/
+cypress/screenshots/
+cypress/downloads/

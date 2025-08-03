@@ -1,0 +1,22 @@
+{
+  "recipes": [
+    {
+      "id": "test-recipe",
+      "title": "Test Recipe",
+      "author": "Test Author",
+      "createdAt": "2024-01-01",
+      "updatedAt": "2024-01-01",
+      "tags": ["test"],
+      "ingredients": [
+        {
+          "ingredient": "Test Ingredient",
+          "amount": "1",
+          "unit": "cup"
+        }
+      ],
+      "instructions": [
+        "Test instruction step"
+      ]
+    }
+  ]
+}
