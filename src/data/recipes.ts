@@ -273,6 +273,38 @@ export const recipes: Recipe[] = [
       'Make wells in the sauce and crack eggs into each. Cover and cook 8-12 minutes until the whites are set but the yolks are still runny',
       'Scatter with feta if desired and garnish with herbs'
     ]
+  },
+  {
+    id: 'pancakes',
+    title: 'Pancakes',
+    tags: ['breakfast', 'pancakes', 'vegetarian'],
+    author: 'Mo',
+    createdDate: '2025-08-03',
+    ingredients: [
+      { name: 'all-purpose flour', amount: 2, unit: 'cup'},
+      { name: 'sugar', amount: 2, unit: 'tbsp'},
+      { name: 'baking powder', amount: 2, unit: 'tsp'},
+      { name: 'salt', amount: 1, unit: 'cup'},
+      { name: 'eggs', amount: 2, unit: 'cup', notes: 'large'},
+      { name: 'buttermilk', amount: 1.75, unit: 'cup'},
+      { name: 'butter', amount: 0.25, unit: 'cup', notes: 'plus extra for cooking'},
+      { name: 'vanilla extract', amount: 1, unit: 'tsp'},
+    ],
+    prepInstructions: [
+      'In a bowl, mix the flour, baking powder, sugar, and salt. Don\'t over mix.',
+      'In a separate bowl, mix the milk, eggs, melted butter, and vanilla extract.',
+      'Add the wet ingredients to the dry ingredients and mix until just combined. Lumps are fine.',
+      'Let the batter rest for 10 minutes'
+    ],
+    cookingInstructions: [
+      'Heat a griddle or heavy skillet over medium heat. Lightly butter the surface.',
+      'Pour approximately 1/4 cup (59ml) of batter onto the griddle or skillet. Cook until bubbles form on the surface, 2-3 minutes. Flip and cook until golden brown on the other side, 2-3 minutes more.',
+      'Repeat with remaining batter, adding more butter to the griddle or skillet as needed.'
+    ],
+    additionalNotes: 'Do not over mix the batter. It will make the pancakes tough',
+    prepTimeMinutes: 10,
+    cookTimeMinutes: 10,
+    servings: 4,
   }
 ];
 

@@ -145,7 +145,11 @@ function formatDate(dateString: string): string {
       Ingredients
     </h2>
 
-    <ul class="ingredients-list space-y-3" role="list">
+    <ul
+      class="ingredients-list space-y-3"
+      role="list"
+      data-testid="ingredients-list"
+    >
       {
         recipe.ingredients.map((ingredient, index) => (
           <li
@@ -158,6 +162,7 @@ function formatDate(dateString: string): string {
               amount: ingredient.amount,
               unit: ingredient.unit,
             })}
+            data-testid="ingredient-item"
           >
             <div class="flex-shrink-0 w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center text-xs font-medium text-blue-800 mt-0.5">
               {index + 1}
@@ -195,7 +200,11 @@ function formatDate(dateString: string): string {
           Preparation
         </h2>
 
-        <ol class="instructions-list space-y-4" role="list">
+        <ol
+          class="instructions-list space-y-4"
+          role="list"
+          data-testid="instructions-list"
+        >
           {recipe.prepInstructions.map((instruction, index) => (
             <li class="flex gap-4">
               <div class="flex-shrink-0 w-8 h-8 bg-green-100 rounded-full flex items-center justify-center text-sm font-semibold text-green-800">
@@ -216,10 +225,14 @@ function formatDate(dateString: string): string {
       Cooking Instructions
     </h2>
 
-    <ol class="instructions-list space-y-4" role="list">
+    <ol
+      class="instructions-list space-y-4"
+      role="list"
+      data-testid="instructions-list"
+    >
       {
         recipe.cookingInstructions.map((instruction, index) => (
-          <li class="flex gap-4">
+          <li class="flex gap-4" data-testid="instruction-step">
             <div class="flex-shrink-0 w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center text-sm font-semibold text-orange-800">
               {index + 1}
             </div>
