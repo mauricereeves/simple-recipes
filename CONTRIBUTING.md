@@ -69,18 +69,22 @@ npm run build
 ## Coding Standards
 
 ### HTML/Astro
+
 - Use semantic HTML elements
 - Include proper ARIA labels and roles
 - Ensure keyboard navigation works
 - Test with screen readers
 
 ### CSS/Tailwind
+
 - Follow existing Tailwind patterns
 - Maintain consistent spacing and typography
 - Ensure sufficient color contrast (4.5:1 minimum)
 - Test responsive design on multiple screen sizes
 
 ### JavaScript
+
+- Prefer TypeScript over JavaScript
 - Keep JavaScript minimal and progressive
 - Ensure the site works without JavaScript
 - Use modern ES6+ syntax
@@ -105,6 +109,7 @@ Before submitting a pull request:
 3. **Follow commit message conventions**: Use clear, descriptive commit messages
 4. **Keep PRs focused**: One feature or fix per pull request
 5. **Be responsive**: Address feedback and requested changes promptly
+6. **Sign your commits** This is important.
 
 ### Commit Message Format
 
