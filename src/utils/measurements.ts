@@ -65,11 +65,13 @@ export function formatAmount(amount: number | undefined): string {
   
   // Handle common fractions
   const remainder = amount - Math.floor(amount);
-  if (Math.abs(remainder - 0.5) < 0.01) return `${Math.floor(amount)} 1/2`;
-  if (Math.abs(remainder - 0.25) < 0.01) return `${Math.floor(amount)} 1/4`;
-  if (Math.abs(remainder - 0.75) < 0.01) return `${Math.floor(amount)} 3/4`;
-  if (Math.abs(remainder - 0.33) < 0.01) return `${Math.floor(amount)} 1/3`;
-  if (Math.abs(remainder - 0.67) < 0.01) return `${Math.floor(amount)} 2/3`;
+  // If the amount is less than 1, don't include the amount because it looks confusing with the fraction
+  const flooredAmount = Math.floor(amount);
+  if (Math.abs(remainder - 0.5) < 0.01) return (flooredAmount > 0 ?`${flooredAmount} 1/2` : '1/2');
+  if (Math.abs(remainder - 0.25) < 0.01) return (flooredAmount > 0 ?`${flooredAmount} 1/4` : '1/4');
+  if (Math.abs(remainder - 0.75) < 0.01) return (flooredAmount > 0 ?`${flooredAmount} 3/4` : '3/4');
+  if (Math.abs(remainder - 0.33) < 0.01) return (flooredAmount > 0 ?`${flooredAmount} 1/3` : '1/3');
+  if (Math.abs(remainder - 0.67) < 0.01) return (flooredAmount > 0 ?`${flooredAmount} 2/3` : '2/3');
   
   return amount?.toFixed(2)?.replace(/\.?0+$/, '') ?? amount?.toString() ?? '';
 }

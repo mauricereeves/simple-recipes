@@ -195,9 +195,88 @@ export const recipes: Recipe[] = [
     cookTimeMinutes: 30,
     prepTimeMinutes: 20,
     servings:4
+  },
+  {
+    id: 'mujadara',
+    title: 'Mujadara',
+    tags: ['vegetarian', 'vegan', 'lentils', 'Middle Eastern'],
+    author: 'Mo',
+    createdDate: '2025-08-02',
+    ingredients: [ 
+      { name: 'brown or green lentils', amount: 1, unit: 'cup'},
+      { name: 'basmati rice', amount: 1, unit: 'cup' },
+      { name: 'large yellow onion', amount: 3, unit: 'whole', notes: 'thinly sliced' },
+      { name: 'olive oil', amount: 0.25, unit: 'cup', notes: 'plus extra for cooking onions' },
+      { name: 'ground cumin', amount: 1.5, unit: 'tsp' },
+      { name: 'cinnamon', amount: 0.25, unit: 'tsp', notes: 'just a hint, it shouldn\'t dominate' },
+      { name: 'allspice', amount: 0.25, unit: 'tsp' },
+      { name: 'salt', amount: 1.5, unit: 'tsp', notes: 'this is the minimum but add more if you desire' },
+      { name: 'black pepper', amount: 0.25, unit: 'tsp' },
+      { name: 'bay leaf', amount: 2, unit: 'whole', notes: 'remove after cooking' },
+      { name: 'vegetable broth', amount: 4, unit: 'cup' },
+      { name: 'water', amount: 3, unit: 'cup', notes: 'for cooking the lentils' },
+      { name: 'fresh parsley', amount: 1, unit: 'cup', notes: 'for garnish (optional)' },
+      { name: 'lemon', amount: 1, unit: 'whole', notes: 'for garnish (optional)' },
+      { name: 'plain greek yogurt', amount: 1, unit: 'cup', notes: 'for garnish (optional)' }  
+    ],
+    prepInstructions: [],
+    cookingInstructions: [
+      'Bring the lentils and water to a boil and simmer for 15-20 minutes until tender. Drain and set aside',
+      'Carmelize the onions in a large skillet over medium heat, cooking slowly for 20-30 minutes until they are deep golden brown and caramelized. Remove half the onions and set aside for garnish',
+      'Add the cooked lentils to the remaining onions in the pan. Add the cumin, cinnamon, allspice, salt, and pepper. Stir for two minutes',
+      'Stir in the rice and vegetable broth and bay leaves. Bring to a boil, then reduce to low heat, cover, and simmer for 15-18 minutes until rice is tender and liquid is absorbed',
+      'Let stand for 10 minutes and then fluff with a fork. Top with the reserved caramelized onions.'
+    ],
+    additionalNotes: 'Serve warm with a dollop of plain greek yogurt, chopped fresh parsley, and a squeeze of lemon juice.',
+    prepTimeMinutes: 0,
+    cookTimeMinutes: 70,
+    servings: 4
+  },
+  {
+    id: 'shakshuka',
+    title: 'Shakshuka',
+    tags: ['breakfast', 'eggs', 'North African', 'vegetarian'],
+    author: 'Mo',
+    createdDate: '2025-08-02',
+    additionalNotes: 'Serve with warm crusty bread for mopping up the sauce',
+    prepTimeMinutes: 0,
+    cookTimeMinutes: 45,
+    servings: 6,
+    ingredients: [
+      { name: 'olive oil', amount: 2, unit: 'tbsp'},
+      { name: 'yellow onion', amount: 1, unit: 'whole', notes: 'diced'},
+      { name: 'bell pepper', amount: 1, unit: 'whole', notes: 'diced, use poblano if you have a latex allergy'},
+      { name: 'garlic', amount: 5, unit: 'clove', notes: 'minced'},
+      { name: 'jalapeño', amount: 2, unit: 'whole', notes: 'minced, leaving seeds in for heat'},
+      { name: 'harissa powder', amount: 2, unit: 'tbsp' },
+      { name: 'ground cumin', amount: 1, unit: 'tsp' },
+      { name: 'sweet or smoked paprika', amount: 1, unit: 'tsp', },
+      { name: 'hot paprika', amount: 1, unit: 'tsp', },
+      { name: 'ground coriander', amount: 0.5, unit: 'tsp' },
+      { name: 'ground cinnamon', amount: 0.25, unit: 'tsp' },
+      { name: 'canned San Marzano tomatoes', amount: 28, unit: 'oz', notes: 'crush by hand'},
+      { name: 'sugar', amount: 0.5, unit: 'tsp' },
+      { name: 'feta', amount: 0.5, unit: 'cup', notes: 'optional' },
+      { name: 'salt and pepper', notes: 'to taste' },
+
+      { name: 'large eggs', amount: 6, unit: 'whole' },
+      { name: 'fresh parsley', amount: 1, unit: 'cup' },
+      { name: 'crusty bread', amount: 1, unit: 'whole', notes: 'loaf, for dipping' },
+    ],
+    prepInstructions: [
+
+    ],
+    cookingInstructions: [
+      'Heat the oil in a cast iron or heavy skillet. Sauté onion and bell pepper until soft, 8-10 minutes',
+      'Add garlic and hot peppers, cook for 1 minute. Add hariss and all spices, cooking until fragrant, 30 seconds',
+      'Add tomatoes, sugar, salt, and pepper. Simmer 15-20 minutes until thickend and rich. Taste and adjust heat.',
+      'Make wells in the sauce and crack eggs into each. Cover and cook 8-12 minutes until the whites are set but the yolks are still runny',
+      'Scatter with feta if desired and garnish with herbs'
+    ]
   }
 ];
 
+// all our functions to get the recipes, tags, etc
 export function getRecipeById(id: string): Recipe | undefined {
   return recipes.find(recipe => recipe.id === id);
 }
