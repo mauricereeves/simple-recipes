@@ -138,20 +138,36 @@ If you look at this example, you'll see:
 
 ## Philosophy
 
-Simple Recipes was created as an antidote to modern recipe blogs that bury the actual recipe under endless stories and ads. We believe:
+Simple Recipes was created as an antidote to modern recipe blogs that bury the actual recipe under endless stories and ads. I believe:
 
 - Recipes should be easy to find and follow
 - Accessibility shouldn't be an afterthought
 - Fast loading matters more than flashy animations
 - Privacy is important - no tracking or data collection
 - Clean code makes for maintainable sites
+- You don't need the narrative
+- You don't need the social features
+- You don't need the ads
 
 ## Contributing
 
-This is a personal project showcasing clean, accessible web development practices. The codebase demonstrates:
+This is a personal project, but I'm trying to adhere to a few principles and I ask if you are contributing that you do the same. These include:
 
 - Semantic HTML and ARIA best practices
 - TypeScript for type safety
 - Static site generation for performance
 - Mobile-first responsive design
 - Progressive enhancement principles
+- Privacy is important - no tracking or data collection
+- Clean code makes for maintainable sites
+- Practice kindness (except to the enshittification of the internet)
+
+## Hosting
+
+The site is currently hosted on Netlify, and I use Cloudflare for caching and DNS. I'm on the free tier for both and hopefully because it's a small static site that should be enough. If I end up ever need to move beyond the free tier, that's a good problem and I'll cross that bridge when I get there.
+
+Cloudflare does inject some analytics which I've allowed for now because their promise is that it does not do fingerprinting or follow users across the internet. If that ever changes I'll disable the analytics. You can read more details about their real-time user monitoring and their privacy protections here: [https://blog.cloudflare.com/privacy-first-web-analytics/](https://blog.cloudflare.com/privacy-first-web-analytics/)
+
+## Funding/Sponsorship
+
+If you like what I'm doing and want to support me you can at [Buy Me a Coffee](https://www.buymeacoffee.com/mauricereeves). But seriously, you don't have to, and I'm not including the link in the website itself.
