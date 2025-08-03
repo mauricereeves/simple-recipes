@@ -1,0 +1,130 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="Privacy Policy - Simple Recipes" 
+  description="Simple Recipes privacy policy: We don't track, collect data, or show ads. Your privacy is protected."
+>
+  <article class="max-w-3xl mx-auto prose prose-gray">
+    <header class="mb-8">
+      <h1 class="text-3xl font-bold text-gray-900 mb-4">Privacy Policy</h1>
+      <p class="text-lg text-gray-600 leading-relaxed">
+        Last updated: August 3, 2025
+      </p>
+    </header>
+
+    <section class="space-y-6 text-gray-700 leading-relaxed">
+      <div>
+        <h2 class="text-2xl font-semibold text-gray-900 mb-3">Our Promise</h2>
+        <p class="mt-2">
+          Simple Recipes is built on the principle that your privacy matters. We believe you should be able to browse recipes without being tracked, profiled, or bombarded with ads.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-2xl font-semibold text-gray-900 mb-3">What We Don't Do</h2>
+        <ul class="space-y-2 list-disc list-inside">
+          <li><strong>No Tracking:</strong> We don't track your browsing behavior, clicks, or page views</li>
+          <li><strong>No Fingerprinting:</strong> We don't collect device information, screen size, or browser details to identify you</li>
+          <li><strong>No Personal Data Collection:</strong> We don't collect names, emails, addresses, or any personal information</li>
+          <li><strong>No Cookies:</strong> We don't set tracking cookies or use local storage to follow you</li>
+          <li><strong>No Analytics:</strong> We don't use Google Analytics, Facebook Pixel, or similar tracking tools</li>
+          <li><strong>No Ads:</strong> We don't show advertisements or work with ad networks</li>
+          <li><strong>No Third-Party Scripts:</strong> We don't embed social media widgets or other tracking scripts</li>
+          <li><strong>No Data Sales:</strong> We have no data to sell because we don't collect any</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="text-2xl font-semibold text-gray-900 mb-3">What We Do Store</h2>
+        <p class="mt-2">
+          The only data stored locally on your device is:
+        </p>
+        <ul class="space-y-2 list-disc list-inside mt-3">
+          <li><strong>Unit Preferences:</strong> Your choice between metric/imperial measurements (stored in your browser's localStorage)</li>
+          <li><strong>Temperature Preferences:</strong> Your choice between Celsius/Fahrenheit (stored in your browser's localStorage)</li>
+        </ul>
+        <p class="mt-3">
+          This preference data never leaves your device and is only used to remember your measurement choices when you return to the site.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-2xl font-semibold text-gray-900 mb-3">Technical Details</h2>
+        <p class="mt-2">
+          Simple Recipes is a static website, meaning:
+        </p>
+        <ul class="space-y-2 list-disc list-inside mt-3">
+          <li>No server-side processing of user data</li>
+          <li>No databases storing personal information</li>
+          <li>No user accounts or login systems</li>
+          <li>All functionality works without JavaScript (progressive enhancement)</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="text-2xl font-semibold text-gray-900 mb-3">Hosting and Infrastructure</h2>
+        <p class="mt-2">
+          Simple Recipes is hosted on Netlify with Cloudflare for caching and DNS. While Cloudflare provides basic web analytics, we've configured it to:
+        </p>
+        <ul class="space-y-2 list-disc list-inside mt-3">
+          <li>Not fingerprint users</li>
+          <li>Not track users across websites</li>
+          <li>Only collect aggregate, anonymous metrics</li>
+        </ul>
+        <p class="mt-3">
+          You can read more about Cloudflare's privacy-first analytics <a href="https://blog.cloudflare.com/privacy-first-web-analytics/" target="_blank" class="text-blue-600 hover:text-blue-800 underline">here</a>.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-2xl font-semibold text-gray-900 mb-3">Contact</h2>
+        <p class="mt-2">
+          If you have questions about this privacy policy, you can email us at <a href="mailto:admin@simple-recipes.me" class="text-blue-600 hover:text-blue-800 underline">admin@simple-recipes.me</a>.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-2xl font-semibold text-gray-900 mb-3">Changes to This Policy</h2>
+        <p class="mt-2">
+          If we ever need to update this privacy policy, we'll update the date at the top of this page. However, our core commitment to not tracking users will never change.
+        </p>
+      </div>
+
+      <div class="bg-green-50 border-l-4 border-green-400 p-4 mt-8">
+        <div class="flex">
+          <div class="flex-shrink-0">
+            <svg class="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor" role="img" aria-hidden="true">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          <div class="ml-3">
+            <h3 class="text-sm font-medium text-green-800">
+              Your Privacy is Protected
+            </h3>
+            <div class="mt-2 text-sm text-green-700">
+              <p>
+                Simple Recipes is designed to respect your privacy from the ground up. You can browse, cook, and enjoy recipes without any concern about being tracked or monitored.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="mt-12 pt-8 border-t border-gray-200">
+      <nav aria-label="Privacy page navigation">
+        <a 
+          href="/"
+          class="inline-flex items-center text-sm font-medium text-gray-600 hover:text-gray-900 focus:outline-none focus:underline"
+        >
+          <svg class="mr-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+          </svg>
+          Back to recipes
+        </a>
+      </nav>
+    </footer>
+  </article>
+</Layout>
