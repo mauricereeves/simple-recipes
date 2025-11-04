@@ -55,6 +55,10 @@ pids
 coverage/
 *.lcov
 
+# Cypress test artifacts
+cypress/screenshots/
+cypress/videos/
+
 # Dependency directories
 jspm_packages/
 

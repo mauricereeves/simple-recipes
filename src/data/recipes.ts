@@ -273,6 +273,50 @@ export const recipes: Recipe[] = [
       'Make wells in the sauce and crack eggs into each. Cover and cook 8-12 minutes until the whites are set but the yolks are still runny',
       'Scatter with feta if desired and garnish with herbs'
     ]
+  },
+  {
+    id: 'english-meat-pie',
+    title: 'English meat pie',
+    tags: ['dinner', 'meat', 'English', 'savory', 'pastry'],
+    author: 'Mo',
+    createdDate: '2025-11-04',
+    additionalNotes: 'Takes a while to make but is worth it',
+    prepTimeMinutes: 120,
+    cookTimeMinutes: 240,
+    servings: 6,
+    ingredients: [
+      { name: 'butter', amount: 4, unit: 'tbsp'},
+      { name: 'yellow onion', amount: 1, unit: 'whole', notes: 'diced'},
+      { name: 'mushrooms', amount: 8, unit: 'oz', notes: 'sliced, cleaned'},
+      { name: 'garlic', amount: 3, unit: 'tbsp', notes: 'minced'},
+      { name: 'beef stock', amount: 2, unit: 'cups'},
+      { name: 'bitter English beer', amount: 1, unit: 'cup' },
+      { name: 'Worcestershire sauce', amount: 2, unit: 'tbsp' },
+      { name: 'tomato paste', amount: 2, unit: 'tbsp', },
+      { name: 'bay leaf', amount: 1, unit: 'whole' },
+      { name: 'rosemary', notes: 'to taste, one sprig if fresh' },
+      { name: 'thyme', notes: 'to taste, one sprig if fresh' },
+      { name: 'stew beef', amount: 2, unit: 'lb', notes: 'cubed' },
+      { name: 'salt and pepper', notes: 'to taste' },
+      { name: 'large eggs', amount: 1, unit: 'whole', notes: 'for the egg wash on top of the puff pastry when baking'},
+      { name: 'puff pastry', amount: 1, notes: 'frozen from store is fine. follow directions on the package to thaw.' },
+    ],
+    prepInstructions: [
+
+    ],
+    cookingInstructions: [
+      'Brown the beef in a large pot or Dutch oven over medium-high heat, adding a little oil if needed. Remove and set aside.',
+      'Add the onion and garlic and cook until softened, about 5 minutes.',
+      'Add the mushrooms and cook until they give up their liquid, about 5 minutes.',
+      'Add the stock, Worcestershire sauce, tomato paste, bay leaf, rosemary, thyme, and salt and pepper. Bring to a boil, then reduce to a simmer and cook for 1-2 hours until the beef is tender. You can simmer in the oven for longer at 300ºF if you prefer.',
+      'Remove the bay leaf, rosemary, and thyme sprigs. Taste and adjust seasoning.',
+      'After the beef has cooked, let it cool, preferably in the fridge for at least 1 day. If you put the filling hot into the pastry you will get the dreaded "soggy bottom".',
+      'When preparing to bake preheat the oven to 400ºF. Prepare the puff pastry. Unwrap the pastry and roll it out on a lightly floured surface to a thickness of about 1/4 inch. Cut it into 6 equal rectangles.',
+      'Assemble the pies by placing a rectangle of puff pastry on a work surface. Spoon some of the beef mixture into the center of the pastry. Fold the pastry over to make a triangle, pressing the edges to seal. Repeat with the remaining pastry and filling.',
+      "After assembling the pies, brush the tops with the egg wash and sprinkle with coarse salt. Maldon salt is traditional but kosher salt is fine!",
+      'Bake the pies in the preheated oven for 25-30 minutes until the pastry is golden brown and the filling is heated through.',
+      'Try to let the pies cool for at least 5-10 minutes before serving. The struggle is real.'
+    ]
   }
 ];
 
