@@ -7,8 +7,8 @@ export const recipes: Recipe[] = [
     tags: ['Thanksgiving', 'stuffing', 'bread', 'apples'],
     author: 'Mo',
     createdDate: '2025-11-05',
-    prepTimeMinutes: 15,
-    cookTimeMinutes: 10,
+    prepTimeMinutes: 25,
+    cookTimeMinutes: 45,
     servings: 8,
     ingredients: [
       { name: 'stuffing', amount: 1, unit: 'bag', notes: 'from the store, buy what you like or make your own by cubing up bread!'},
