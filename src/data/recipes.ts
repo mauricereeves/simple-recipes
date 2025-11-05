@@ -18,7 +18,7 @@ export const recipes: Recipe[] = [
       { name: 'butter', amount: 6, unit: 'tbsp'},
       { name: 'broth', amount: 2, unit: 'cups', notes: 'chicken, turkey, vegetable, or even mushroom broth works well'},
       { name: 'mushrooms', amount: 4, unit: 'oz', notes: 'sliced, cleaned, optional though nice to have, especially if you aren\'t using sausage'},
-      { name: 'egg', amount: 2, unit: 'whole'},
+      { name: 'eggs', amount: 2, unit: 'whole'},
       { name: 'thyme', amount: 2, unit: 'tsp', notes: 'to taste, season with your heart' },
       { name: 'sage', amount: 2, unit: 'tsp', notes: 'to taste, season with your heart' },
       { name: 'other seasonings', notes: 'garlic powder, paprika, parsley, bay leaf, do what you like' },
