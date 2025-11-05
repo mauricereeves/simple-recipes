@@ -33,7 +33,8 @@ export type MeasurementUnit =
   | 'cm'
   | 'pinch' | 'dash'
   | 'whole' | 'bunch'
-  | 'bag' | 'bags';
+  | 'bag' | 'bags'
+  | 'tube' | 'tubes';
 
 export type UnitSystem = 'metric' | 'imperial';
 export type TemperatureUnit = 'celsius' | 'fahrenheit';

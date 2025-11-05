@@ -2,6 +2,51 @@ import type { Recipe } from '../types/Recipe';
 
 export const recipes: Recipe[] = [
   {
+    id: 'sausage-stuffing',
+    title: 'Sausage Stuffing',
+    tags: ['Thanksgiving', 'stuffing', 'bread', 'apples'],
+    author: 'Mo',
+    createdDate: '2025-11-05',
+    prepTimeMinutes: 15,
+    cookTimeMinutes: 10,
+    servings: 8,
+    ingredients: [
+      { name: 'stuffing', amount: 1, unit: 'bag', notes: 'from the store, buy what you like or make your own by cubing up bread!'},
+      { name: 'sausage', amount: 1, unit: 'tube', notes: 'a traditional pork breakfast sausage is fine but this works with vegetarian sausage too'},
+      { name: 'green apples', amount: 3, unit: 'whole', notes: 'tart work best'},
+      { name: 'yellow onion', amount: 1, unit: 'whole', notes: 'diced'},
+      { name: 'butter', amount: 6, unit: 'tbsp'},
+      { name: 'broth', amount: 2, unit: 'cups', notes: 'chicken, turkey, vegetable, or even mushroom broth works well'},
+      { name: 'mushrooms', amount: 4, unit: 'oz', notes: 'sliced, cleaned, optional though nice to have, especially if you aren\'t using sausage'},
+      { name: 'egg', amount: 2, unit: 'whole'},
+      { name: 'thyme', amount: 2, unit: 'tsp', notes: 'to taste, season with your heart' },
+      { name: 'sage', amount: 2, unit: 'tsp', notes: 'to taste, season with your heart' },
+      { name: 'other seasonings', notes: 'garlic powder, paprika, parsley, bay leaf, do what you like' },
+      { name: 'salt and pepper', amount: 3, unit: 'tsp', notes: 'to taste' },
+    ],
+    additionalNotes: 'If you are making this vegetarian, a pinch or two of MSG helps impart a meaty flavor. Just add it to the broth. You can get it at most grocery stores in the international aisle.',
+    prepInstructions: [
+      'Dice the onion',
+      'Peel and core the apples, and then dice them',
+      'Clean and slice the mushrooms',
+      'Preheat the oven to 325ºF (165ºC)',
+      'If your bread is not crispy, toast it in the oven at 325ºF (165ºC) for 5-10 minutes until it is crispy and crunchy.',
+    ],
+    cookingInstructions: [
+      'In a large pan cook the sausage until it is browned and cooke through. Remove and set aside, reserving the fat in the pan',
+      'Add the mushrooms and cook until they give up their liquid, about 5 minutes.',
+      'Add the onion and cook until softened, about 5 minutes.',
+      'Add the apples and cook until softened, about 5 minutes.',
+      'Add the sausage back to the pan and cook until heated through.',
+      'Add the thyme, sage, other seasonings, and salt and pepper and mix well. If using the MSG add it now.',
+      'Remove the pan from the heat and let the ingredients cool. Mix the sausage apple mixture with the bread in a large baking dish. Combine well.',
+      'In a bowl or measuring cup beat the eggs into the broth until well mixed.',
+      'Pour the egg and broth mixture over the bread stuffing and mix so all the ingredients are well combined and the liquid is absorbed.',
+      'Cover the dish tightly with foil and bake for 25-35 minutes. Remove the foil and bake for another 5-10 minutes until the top is browned and the stuffing is heated through.',
+      'Serve hot'
+    ]
+  },
+  {
     id: 'classic-chocolate-chip-cookies',
     title: 'Classic Chocolate Chip Cookies',
     tags: ['dessert', 'cookies', 'quick'],
