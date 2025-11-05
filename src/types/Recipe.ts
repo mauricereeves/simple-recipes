@@ -32,7 +32,8 @@ export type MeasurementUnit =
   | 'inch' | 'inches'
   | 'cm'
   | 'pinch' | 'dash'
-  | 'whole';
+  | 'whole' | 'bunch'
+  | 'bag' | 'bags';
 
 export type UnitSystem = 'metric' | 'imperial';
 export type TemperatureUnit = 'celsius' | 'fahrenheit';

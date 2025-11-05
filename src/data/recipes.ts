@@ -317,6 +317,43 @@ export const recipes: Recipe[] = [
       'Bake the pies in the preheated oven for 25-30 minutes until the pastry is golden brown and the filling is heated through.',
       'Try to let the pies cool for at least 5-10 minutes before serving. The struggle is real.'
     ]
+  },
+  {
+    id: 'cranberry-compote',
+    title: 'Cranberry Compote',
+    tags: ['Thanksgiving', 'cranberries', 'sweet', 'compote', 'fruit', 'citrus'],
+    author: 'Mo',
+    createdDate: '2025-11-05',
+    additionalNotes: 'A step up from the canned cranberry sauce',
+    prepTimeMinutes: 15,
+    cookTimeMinutes: 10,
+    servings: 8,
+    ingredients: [
+      { name: 'fresh cranberries', amount: 0.5, unit: 'lb'},
+      { name: 'lemon zest', amount: 1, unit: 'tsp', notes: 'zest from 1 lemon'},
+      { name: 'lemon juice', amount: 3, unit: 'tbsp', notes: 'from 1 lemon'},
+      { name: 'lime zest', amount: 1, unit: 'tsp', notes: 'zest from 1 lime'},
+      { name: 'lime juice', amount: 3, unit: 'tbsp', notes: 'from 1 lime'},
+      { name: 'orange zest', amount: 1, unit: 'tsp', notes: 'zest from 1 orange'},
+      { name: 'orange juice', amount: 0.25, unit: 'cup', notes: 'from 1 orange'},
+      { name: 'granulated sugar', amount: 0.5, unit: 'cup'},
+      { name: 'clove', amount: 2, unit: 'pinch',  notes: 'to taste' },
+      { name: 'nutmeg', amount: 1, unit: 'pinch', notes: 'to taste' },
+      { name: 'vanilla extract', amount: 1, unit: 'tsp' },
+      { name: 'water', amount: 2, unit: 'cup', notes: '1 1/2 cups water for the cranberries and 1/2 cup for the slurry' },
+      { name: 'cornstarch', amount: 3, unit: 'tbsp', notes: 'for the slurry' },
+    ],
+    prepInstructions: [
+      'Rinse the cranberries and make sure there are no stems on them. Throw out any that look sad.',
+      'Zest the lemons, limes, and orange.',
+      'Juice the lemons, limes, and orange.',
+      'Mix the cornstarch with 1/2 cup of water to make a slurry. This will be used at the end of the cooking to thicken the sauce. If the cornstarch and water separate just mix again until your fork moves smoothly through it and it looks like thin milk.',
+    ],
+    cookingInstructions: [
+      'Put the cranberries, the zests, the sugar, the vanilla, the orange juice, the spices, and 1 1/2 cup of water in a non-reactive saucepan and boil for about 8 minutes on medium-high heat. You should see the cranberries start to break apart.',
+      'Mix in the well-mixed slurry and cook for an additional 2 minutes while stirring constantly.',
+      'Let it cool completely before serving. Resist the urge to taste it before it has cooled completely of you will burn your tongue. Trust me.'
+    ]
   }
 ];
 
